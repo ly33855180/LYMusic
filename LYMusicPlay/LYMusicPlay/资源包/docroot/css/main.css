@@ -1,0 +1,15 @@
+@charset "utf-8";
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, input, textarea, p, blockquote, th, td { margin:0; padding:0; }
+body{ font:12px/1.5 Microsoft YaHei,\5b8b\4f53, Arial, Verdana; color:#6d6d6d; background:#fff;}
+ul{ list-style:none;}
+button{ border:0 none; padding:0; cursor:pointer;}
+img{ border:0;}
+a{ text-decoration:underline; color:#4f6066}
+.clear {clear:both;}
+.clear_fix {zoom:1;}
+.clear_fix:after {display:block;clear:both;content:".";visibility:hidden;height:0;font-size:0;}
+.fl{ float:left}
+/**/
+.wrap{ width:753px; padding-left:70px; margin:30px auto 0; background:url(../images/head.png) no-repeat; padding-top:75px}
+.wrap strong{ font-size:14px; padding-bottom:5px; font-weight:normal; display:block}
+.wrap p#uploading{ padding:5px 0;background:#ffffcc;display:none;border:#ffe36b 1px solid;margin-bottom:4px;width:527px;}

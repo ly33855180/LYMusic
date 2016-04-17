@@ -1,0 +1,24 @@
+*~.nib
+*.so
+*.pbxuser
+*.mode
+*.perspective*
+*.o
+*.lo
+*.la
+#*#
+.*.rej
+*.rej
+.*~
+*~
+.#*
+xcshareddata
+.DS_Store
+build
+xcuserdata
+build/
+
+
+# vim
+*.swp
+

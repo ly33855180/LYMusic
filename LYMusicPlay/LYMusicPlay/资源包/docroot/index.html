@@ -1,0 +1,94 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=7">
+            <title>酷狗音乐</title>
+            <link rel="stylesheet" href="css/main.css" type="text/css">
+                <link href="images/favicon.ico" rel="shortcut icon">
+                    <script type="text/javascript" src="js/base.js"></script>
+                    </head>
+    <body>
+        <div class="wrap"> <strong>&nbsp;</strong>
+            <p id="uploading">正在为您传输文件到手机，请不要关闭当前页面</p>
+            <div class="flash"> 
+                <script tyle="text/javascript">
+                    Kg.flash.write("uploader", "flash/Upload.swf?url=/files", 676, 286, {"wmode":"transparent"});
+                    </script> 
+            </div>
+        </div>
+    </body>
+</html>
+<script type="text/javascript">
+    Kg.get(
+           "/deviceName",
+           {
+           "n":Math.random()
+           },
+           function(info)
+           {
+           var data = Kg.JSON.parse(info);
+           if(data.status == 1)
+           {
+           Kg.$T("strong")[0].innerHTML = '已连接："' + data.user + '"的'+ data.model;
+           } 
+           else 
+           {
+           Kg.$T("strong")[0].innerHTML = '连接失败';
+           }
+           }
+           );
+    
+    /**
+     * flash调用该方法
+     * @param unUpload 表示还有多少个文件没有上传
+     */
+    var sendStatus = false; //表示是否有文件正在上传
+    function hadFileUp(unUpload)
+    {
+        if(unUpload > 0 && !sendStatus) 
+        {
+            startUpload();
+            sendStatus = true;
+            Kg.$("uploading").style.display = "block";
+        }
+        else if(unUpload == 0)
+        {
+            endUpload();
+            sendStatus = false;
+            Kg.$("uploading").style.display = "none";
+        }
+    }
+    //开始上传文件时调用
+    function startUpload()
+    {
+        Kg.get(
+               "/start",
+               {
+               "n":Math.random()
+               },
+               function(data){}
+               );
+    }
+    //没有上传文件时调用
+    function endUpload()
+    {
+        Kg.get(
+               "/end",
+               {
+               "n":Math.random()
+               },
+               function(data){}
+               );
+    }
+    //关闭/刷新窗口之前
+    window.onbeforeunload = function()
+    {
+        return "关闭或刷新当前窗口可能会导致上传失败，确认？";
+    }
+    //关闭/刷新窗口时ing
+    window.onunload = function()
+    {
+        endUpload();
+    }
+    </script>

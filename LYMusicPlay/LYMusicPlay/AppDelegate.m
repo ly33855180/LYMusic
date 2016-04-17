@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-
+#import "LYLeftRightSliderVC.h"
 @interface AppDelegate ()
 
 @end
@@ -17,6 +17,13 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+
+   NSLog(NSStringFromCGRect([[UIScreen mainScreen] bounds]));
+   LYLeftRightSliderVC* leftRightVC = [LYLeftRightSliderVC LeftRightSliderVC];
+    UIWindow* win = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    self.window = win;
+    self.window.rootViewController = leftRightVC;
+    [self.window makeKeyAndVisible];
     return YES;
 }
 
